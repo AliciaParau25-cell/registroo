@@ -1,40 +1,27 @@
-function iniciar() {
-  registro = document.getElementById("registro");
-  password1 = document.getElementById("password1");
-  password2 = document.getElementById("password2");
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const formulario = document.getElementById('registro');
+    const pass1 = document.getElementById('password1');
+    const pass2 = document.getElementById('password2');
 
-  password1.addEventListener("input", validacion, false);
-  password2.addEventListener("input", validacion, false);
+    // 1. Validación mientras el usuario escribe (Tiempo real)
+    pass2.addEventListener('input', function() {
+        if (pass1.value !== pass2.value) {
+            pass2.setCustomValidity("Las contraseñas deben coincidir");
+        } else {
+            pass2.setCustomValidity(""); // Esto quita el error si ya son iguales
+        }
+    });
 
-
-  registro.addEventListener("input", validarEntrada, false);
-
-
-  registro.addEventListener("invalid", accionInvalid, true);
-}
-
-function validacion() {
-  if (password1.value !== password2.value) {
-    password2.setCustomValidity("Las passwords deben coincidir");
-  } else {
-    password2.setCustomValidity("");
-  }
-}
-
-function validarEntrada(evento) {
-  var elemento = evento.target;
-
-  if (elemento.validity.valid) {
-    elemento.style.background = "transparent";
-  } else {
-    elemento.style.background = "yellow";
-  }
-}
-
-function accionInvalid(evento) {
-  var elemento = evento.target;
-  elemento.style.background = "yellow";
-}
-
-
-window.addEventListener("load", iniciar, false);
+    // 2. Validación al intentar enviar (Doble seguridad)
+    formulario.onsubmit = function(e) {
+        if (pass1.value !== pass2.value) {
+            e.preventDefault(); // Bloquea el envío
+            alert("¡Las contraseñas no coinciden! Por favor, verifica.");
+            pass2.value = "";
+            pass2.focus();
+            return false;
+        }
+        return true;
+    };
+});
