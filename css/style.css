@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'LeagueGothic';
+    src: url('../fonts/League_Gothic-webfont.woff') format('woff'),
+         url('../fonts/League_Gothic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AcknowledgementMedium';
+    src: url('../fonts/Acknowledgement-webfont.woff') format('woff'),
+         url('../fonts/Acknowledgement-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background-color: #484848;
+    color: #fff;
+    text-shadow: none;
+}
+
+form {
+    margin: 10px auto;
+    border: solid 2px #888;
+    border-width: 2px 0;
+    width: 710px;
+    text-align: center;
+    padding: 20px;
+
+    background: rgba(0,0,0,0.2) url('../imgs/bg-form.png') no-repeat bottom center;
+}
+
+form ul { 
+    list-style-type: none; 
+}
+
+form ul li { 
+    margin-bottom: 15px; 
+}
+
+form h1 {
+    font-family: 'AcknowledgementMedium', sans-serif;
+    font-size: 2.5em;
+    padding: 40px 0;
+    background-image: url('../imgs-registro/bg-formtitle-left.png'), 
+                      url('../imgs-registro/bg-formtitle-right.png');
+    background-position: left center, right center;
+    background-repeat: no-repeat;
+    background-size: 100px auto; 
+}
+
+label {
+    font-family: 'LeagueGothic', sans-serif;
+    display: block;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.3em;
+}
+
+input { 
+
+    color: #282828;
+    background-color: transparent;
+    border: dotted #484848;    
+    border-width: 0 0 1px 0;
+    display: block;
+    margin: 10px auto;
+    font-style: italic;
+    font-family: Times, "Times New Roman", serif;
+    font-size: 1.1em;
+    padding: 5px 35px;
+    width: 50%;
+    text-align: center;
+}
+
+
+input:required {
+    background: url('../imgs-registro/required.png') no-repeat right center;
+}
+
+input:focus:valid {
+    background: url('../imgs-registro/valid.png') no-repeat right center;
+}
+
+
+input:focus:invalid {
+    background: url('../imgs-registro/invalid.png') no-repeat right center;
+}
+
+
+input[type="checkbox"] { 
+    vertical-align: bottom; 
+    display: inline;
+    width: auto;
+    background: none !important;
+}
+
+input[type="range"] { 
+    border: none; 
+}
+
+label[for="cantidad"], #cantidad { 
+    display: inline; 
+}
+
+#cantidad { 
+    width: 40px; 
+    display: inline; 
+    padding: 0; 
+}
+
+#registro-submit {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: radial-gradient(30% 120%, rgba(144,144,144, 1) 0%, rgba(72,72,72,1) 50%);
+    color: #fff;
+    font-family: 'LeagueGothic', sans-serif;
+    text-transform: uppercase;
+    font-size: 2em;
+    padding: 10px 40px;
+    margin: 20px auto;
+    opacity: 0.8;
+    transition: opacity .25s linear;
+    display: block;
+    width: auto;
+}
+
+#registro-submit:hover { 
+    opacity: 1; 
+}
